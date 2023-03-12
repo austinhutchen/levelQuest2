@@ -16,32 +16,35 @@ void menu(player *me, enemy *they) {
   case 1: {
     // actual game body
     cout << "How big is your map?" << endl;
-    // changes the max size of nxn matrix generation
-    // generate within a range modulo an upper bound for nxn matrix dimension
     cout << "PRESS (A) FOR BIG ADVENTURE" << endl;
     cout << "PRESS (B) FOR MEDIUM ADVENTURE" << endl;
     cout << "PRESS (C) FOR SMALL ADVENTURE" << endl;
     cin >> choice;
     switch (choice) {
     case 'a': {
-      // large map construction
+      // large map construction of 2d vector on the heap
       map *nmap = new map(30, 30, me, they);
       nmap->displaymap();
+       nmap->player()->gethp();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+
       break;
     }
     case 'b': {
-      // medium map construct
+      // medium map construct of 2d vector on heap
       map* nmap = new map(20, 20, me, they);
       nmap->displaymap();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+      nmap->player()->gethp();
       break;
     }
     case 'c': {
-      // small map construct
+      // small map construct of 2d vector on heap
       map *nmap = new map(10, 10, me, they);
       nmap->displaymap();
+       nmap->player()->gethp();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+
       break;
     }
     default: {
@@ -86,6 +89,6 @@ int main() {
   cout << "WELCOME, ADVENTURER, TO THE LONG AWAITED JOURNEY" << endl;
   cout << "[--------LVLQUEST 2.0-------]" << endl;
   enemy *evil = new enemy();
-  player *you = new player();
+  player *you = new player(10);
   menu(you, evil);
 }
