@@ -85,10 +85,7 @@ void menu(player *me, enemy *they) {
 int main() {
   cout << "WELCOME, ADVENTURER, TO THE LONG AWAITED JOURNEY" << endl;
   cout << "[--------LVLQUEST 2.0-------]" << endl;
-  char choice;
-  char choice2;
   enemy *evil = new enemy();
   player *you = new player();
-  string main_choice;
   menu(you, evil);
 }
