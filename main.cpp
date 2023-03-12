@@ -25,25 +25,28 @@ void menu(player *me, enemy *they) {
       // large map construction of 2d vector on the heap
       map *nmap = new map(30, 30, me, they);
       nmap->displaymap();
-       nmap->player()->gethp();
-      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+      nmap->player()->gethp();
+      nmap->enemy()->gethp();
+      // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
 
       break;
     }
     case 'b': {
       // medium map construct of 2d vector on heap
-      map* nmap = new map(20, 20, me, they);
+      map *nmap = new map(20, 20, me, they);
       nmap->displaymap();
-      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+      // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       nmap->player()->gethp();
+      nmap->enemy()->gethp();
       break;
     }
     case 'c': {
       // small map construct of 2d vector on heap
       map *nmap = new map(10, 10, me, they);
       nmap->displaymap();
-       nmap->player()->gethp();
-      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
+      nmap->player()->gethp();
+      nmap->enemy()->gethp();
+      // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
 
       break;
     }
@@ -59,16 +62,16 @@ void menu(player *me, enemy *they) {
 
   case 2: {
     // file read
-    cout << "Loading.." <<endl;
+    cout << "Loading.." << endl;
     cout << "not done yet" << endl;
-     return menu(me, they);
+    return menu(me, they);
     break;
   }
 
   case 3: {
     // choose a character
     cout << "not done yet" << endl;
-     return menu(me, they);
+    return menu(me, they);
     break;
   }
 
@@ -89,6 +92,6 @@ int main() {
   cout << "WELCOME, ADVENTURER, TO THE LONG AWAITED JOURNEY" << endl;
   cout << "[--------LVLQUEST 2.0-------]" << endl;
   enemy *evil = new enemy();
-  player *you = new player(10,"😡");
+  player *you = new player(10, "😡");
   menu(you, evil);
 }
