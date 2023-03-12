@@ -46,6 +46,14 @@ void menu(player *me, enemy *they) {
       nmap->displaymap();
       nmap->player()->gethp();
       nmap->enemy()->gethp();
+      // overall movement structure for game
+      int i=0;
+          // overall movement structure for game, modify loop condition for turn-based movement
+      while(i<3){
+          nmap->refresh();
+       nmap->displaymap();
+       i++;
+      }
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
 
       break;
