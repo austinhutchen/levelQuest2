@@ -23,9 +23,11 @@ for(int i=0;i<rows;i++){
 }
 void displaymap(){
 for(int i=0;i<rows;i++){
+
 for(int k=0;k<columns;k++){
- std::cout << mat[i][k] <<std::endl;
+ std::cout << mat[i][k] ;
 }
+std::cout << std::endl;
 }
 
 }

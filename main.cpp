@@ -16,6 +16,8 @@ void menu(player *me, enemy *they) {
   switch (main_choice) {
   case 1: {
     // file read
+    cout << "not done yet" << endl;
+    break;
   }
 
   case 2: {
@@ -30,20 +32,36 @@ void menu(player *me, enemy *they) {
     switch (choice) {
     case 'a': {
       // large map construction
-      map nmap = map(10, 10, me, they);
+      map nmap = map(30, 30, me, they);
       nmap.displaymap();
+      break;
     }
     case 'b': {
       // medium map construct
+      map nmap = map(20, 20, me, they);
+      nmap.displaymap();
+      break;
     }
     case 'c': {
       // small map construct
+      map nmap = map(10, 10, me, they);
+      nmap.displaymap();
+      break;
+    }
+    default: {
+      cout << "INPUT ONLY A, B, OR C. NO NUMBERS OR EXTRANEOUS CHARACTERS "
+              "ALLOWED"
+           << endl;
+      return menu(me, they);
     }
     }
+    break;
   }
 
   case 3: {
     // choose a character
+    cout << "not done yet" << endl;
+    break;
   }
 
   case 4: {
