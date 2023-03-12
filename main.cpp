@@ -89,6 +89,6 @@ int main() {
   cout << "WELCOME, ADVENTURER, TO THE LONG AWAITED JOURNEY" << endl;
   cout << "[--------LVLQUEST 2.0-------]" << endl;
   enemy *evil = new enemy();
-  player *you = new player(10);
+  player *you = new player(10,"😡");
   menu(you, evil);
 }
