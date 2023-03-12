@@ -4,23 +4,18 @@
 using namespace std;
 
 void menu(player *me, enemy *they) {
-  cout << "----->MAIN MENU<-----" << endl;
-  cout << "1: Load save" << endl;
-  cout << "2. Start" << endl;
-  cout << "3. Exit" << endl;
-  cout << "4. Choose character" << endl;
+  cout << "[**MAIN MENU**]" << endl;
+  cout << "1: New save" << endl;
+  cout << "2. Load Save" << endl;
+  cout << "3. Choose character" << endl;
+  cout << "4. Exit" << endl;
+
   short int main_choice;
   // choice is reused for choices requiring integer or character input
   char choice;
   cin >> main_choice;
   switch (main_choice) {
   case 1: {
-    // file read
-    cout << "not done yet" << endl;
-    break;
-  }
-
-  case 2: {
     // actual game body
     cout << "How big is your map?" << endl;
     // changes the max size of nxn matrix generation
@@ -34,18 +29,21 @@ void menu(player *me, enemy *they) {
       // large map construction
       map nmap = map(30, 30, me, they);
       nmap.displaymap();
+      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
     case 'b': {
       // medium map construct
       map nmap = map(20, 20, me, they);
       nmap.displaymap();
+      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
     case 'c': {
       // small map construct
       map nmap = map(10, 10, me, they);
       nmap.displaymap();
+      //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
     default: {
@@ -58,9 +56,18 @@ void menu(player *me, enemy *they) {
     break;
   }
 
+  case 2: {
+    // file read
+    cout << "Loading.." <<endl;
+    cout << "not done yet" << endl;
+     return menu(me, they);
+    break;
+  }
+
   case 3: {
     // choose a character
     cout << "not done yet" << endl;
+     return menu(me, they);
     break;
   }
 
@@ -86,6 +93,4 @@ int main() {
   player *you = new player();
   string main_choice;
   menu(you, evil);
-
-  {}
 }

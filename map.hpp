@@ -16,6 +16,7 @@ this->icon="🚛";
 for(int i=0;i<rows;i++){
  std::vector<std::string> dub;
  mat.push_back(dub);
+ // change the icon pushed back in relation to player and enemy pointer position
  for(int k=0;k<columns;k++){
  mat[i].push_back(icon);
  }
