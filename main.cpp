@@ -3,7 +3,7 @@
 // above is the include file for seperate libraries needed to run game
 using namespace std;
 
-void menu(player *p, enemy *e) {
+void menu(player *me, enemy *they) {
   cout << "----->MAIN MENU<-----" << endl;
   cout << "1: Load save" << endl;
   cout << "2. Start" << endl;
@@ -30,7 +30,8 @@ void menu(player *p, enemy *e) {
     switch (choice) {
     case 'a': {
       // large map construction
-      
+      map nmap = map(10, 10, me, they);
+      nmap.displaymap();
     }
     case 'b': {
       // medium map construct
@@ -53,7 +54,7 @@ void menu(player *p, enemy *e) {
 
   default: {
     cout << "fix yo input dawg" << endl;
-    return menu(p, e);
+    return menu(me, they);
   }
   }
 }
