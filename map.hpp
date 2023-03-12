@@ -21,8 +21,8 @@ for(int i=0;i<rows;i++){
  mat[i].push_back(icon);
  }
 }
-
 }
+
 void displaymap(){
 for(int i=0;i<rows;i++){
 
@@ -33,9 +33,13 @@ std::cout << std::endl;
 }
 
 }
-
-
-
+// all info about player or enemy such as location is stored at these pointers on the heap
+player* player(){
+ return this->p;
+}
+enemy* enemy(){
+ return this->e;
+}
 
 
 
@@ -45,8 +49,8 @@ std::vector<std::vector<std::string> >mat;
 unsigned int columns;
 unsigned int rows;
 std::string icon;
-player *p;
-enemy *e;
+class player *p;
+class enemy *e;
 
 
 

@@ -27,6 +27,7 @@ void menu(player *me, enemy *they) {
       // large map construction
       map nmap = map(30, 30, me, they);
       nmap.displaymap();
+    
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
