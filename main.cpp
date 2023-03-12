@@ -1,8 +1,6 @@
 
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
-using namespace std;
-
 void menu(player *me, enemy *they) {
   cout << "[**MAIN MENU**]" << endl;
   cout << "1: New save" << endl;
