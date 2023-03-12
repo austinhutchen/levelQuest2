@@ -25,23 +25,22 @@ void menu(player *me, enemy *they) {
     switch (choice) {
     case 'a': {
       // large map construction
-      map nmap = map(30, 30, me, they);
-      nmap.displaymap();
-    
+      map *nmap = new map(30, 30, me, they);
+      nmap->displaymap();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
     case 'b': {
       // medium map construct
-      map nmap = map(20, 20, me, they);
-      nmap.displaymap();
+      map* nmap = new map(20, 20, me, they);
+      nmap->displaymap();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
     case 'c': {
       // small map construct
-      map nmap = map(10, 10, me, they);
-      nmap.displaymap();
+      map *nmap = new map(10, 10, me, they);
+      nmap->displaymap();
       //MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       break;
     }
