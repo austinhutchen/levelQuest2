@@ -10,7 +10,7 @@ for(int i=0;i<word.size();i++){
 // lowercase algorithm
 }
 
-
+return "0";
 }
 
 

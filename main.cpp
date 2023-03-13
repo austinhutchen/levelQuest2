@@ -25,24 +25,26 @@ void menu(player *me, enemy *they) {
       // large map construction of 2d vector on the heap
       map *nmap = new map(30, 30, me, they);
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
-       int i=0;
-          // overall movement structure for game, modify loop condition for turn-based movement
-      while(i<3){
-          nmap->refresh();
-       nmap->displaymap();
-       i++;
+      int i = 0;
+      // overall movement structure for game, modify loop condition for
+      // turn-based movement
+      while (i < 3) {
+        nmap->refresh();
+        nmap->displaymap();
+        i++;
       }
       break;
     }
     case 'b': {
       // medium map construct of 2d vector on heap
       map *nmap = new map(20, 20, me, they);
-       int i=0;
-          // overall movement structure for game, modify loop condition for turn-based movement
-      while(i<3){
-          nmap->refresh();
-       nmap->displaymap();
-       i++;
+      int i = 0;
+      // overall movement structure for game, modify loop condition for
+      // turn-based movement
+      while (i < 3) {
+        nmap->refresh();
+        nmap->displaymap();
+        i++;
       }
       break;
     }
@@ -50,12 +52,13 @@ void menu(player *me, enemy *they) {
       // small map construct of 2d vector on heap
       map *nmap = new map(10, 10, me, they);
       // overall movement structure for game
-      int i=0;
-          // overall movement structure for game, modify loop condition for turn-based movement
-      while(i<3){
-          nmap->refresh();
-       nmap->displaymap();
-       i++;
+      int i = 0;
+      // overall movement structure for game, modify loop condition for
+      // turn-based movement
+      while (i < 3) {
+        nmap->refresh();
+        nmap->displaymap();
+        i++;
       }
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
 
@@ -102,7 +105,8 @@ void menu(player *me, enemy *they) {
 int main() {
   cout << "WELCOME, ADVENTURER, TO THE LONG AWAITED JOURNEY" << endl;
   cout << "[--------LVLQUEST 2.0-------]" << endl;
-  enemy *evil = new enemy();
+  enemy *evil = new enemy(10, "😡");
   player *you = new player(10, "😡");
   menu(you, evil);
+  return 0;
 }

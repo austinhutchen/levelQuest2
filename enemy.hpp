@@ -5,27 +5,34 @@
 class enemy {
 
 public:
-  enemy() {
+  enemy(int bound, std::string model) {
+    this->locationx = 0;
+    this->locationy = 0;
+    setchar(model);
     for (int i = 0; i < 10; i++) {
-      health.push_back("hp");
+      health.push_back("❤️");
     }
-  }
-  
-  unsigned short gethp() {
-    unsigned short int hp = 0;
-    for (int i = 0; i < this->health.size(); i++) {
-      if (this->health[i] == "hp") {
-        hp++;
-      }
-    }
-    return hp;
+    std::cout << std::endl;
   }
 
-  void setchar(char val) { this->model = val; }
+  void setchar(std::string val) { this->model = val; }
+
+  void gethp() {
+    std::cout << this->model << "HEALTH :" << std::endl;
+    for (int i = 0; i < health.size(); i++) {
+      std::cout << health[i];
+    }
+    std::cout << std::endl;
+  }
+  int getx() { return locationx; }
+
+  int gety() { return locationy; }
+
+  std::string getchar() { return this->model; }
 
 private:
   std::vector<std::string> health;
-  char model;
+  std::string model;
   int locationx;
-  int location;
+  int locationy;
 };

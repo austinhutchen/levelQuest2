@@ -4,10 +4,10 @@
 
 class player {
 public:
-  player(int bound,std::string model) {
-   this->locationx=0;
-   this->locationy=0;
-   setchar(model);
+  player(int bound, std::string model) {
+    this->locationx = 0;
+    this->locationy = 0;
+    setchar(model);
     for (int i = 0; i < bound; i++) {
       health.push_back("❤️");
     }
@@ -24,15 +24,10 @@ public:
     std::cout << std::endl;
   }
 
-int getx(){
- return locationx;
-}
-int gety(){
- return locationy;
-}
-std::string getchar(){
- return this->model;
-}
+  int getx() { return locationx; }
+  int gety() { return locationy; }
+  std::string getchar() { return this->model; }
+
 private:
   // used for moving around graph/map data structure
   int locationx;
