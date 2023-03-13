@@ -56,7 +56,7 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
-      while (i < 3) {
+      while (true) {
         nmap->refresh();
         nmap->displaymap();
         nmap->move();
