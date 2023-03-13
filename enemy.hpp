@@ -29,7 +29,19 @@ public:
   int gety() { return locationy; }
 
   std::string getchar() { return this->model; }
-
+  
+  void up(){
+    this->locationx++;
+  }
+  void right(){
+    this->locationy++;
+  }
+   void left(){
+    this->locationy--;
+  }
+   void down(){
+    this->locationx--;
+  }
 private:
   std::vector<std::string> health;
   std::string model;

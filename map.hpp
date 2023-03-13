@@ -34,6 +34,7 @@ public:
   // on the heap
   player *player() { return this->p; }
   enemy *enemy() { return this->e; }
+
   void refresh() {
     if (mat.size() == 0) {
       std::cout << "empty map" << std::endl;
@@ -50,6 +51,39 @@ public:
       }
     }
   }
+
+void move(){
+ char choice;
+ std::cout << " Where would you like to move to?"  <<std::endl;
+ std::cout << "USE wasd FOR UP-DOWN-LEFT-RIGHT" << std::endl;
+ std::cin >> choice;
+ switch(choice){
+   case 'w':{
+    p->up();
+    break;
+   }
+   case 'a':{
+   p->left();
+    break;
+   }
+    case 's':{
+   p->down();
+    break;
+   }
+
+    case 'd':{
+    p->right();
+    break;
+   }
+
+   default: {
+    std::cout << "Exiting.." <<std::endl;
+    return;
+   }
+ }
+}
+
+
 
 private:
   // 2d dynamic array for building map size

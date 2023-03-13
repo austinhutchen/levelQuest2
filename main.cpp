@@ -28,9 +28,10 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
-      while (i < 3) {
+      while (true) {
         nmap->refresh();
         nmap->displaymap();
+        nmap->move();
         i++;
       }
       break;
@@ -58,6 +59,7 @@ void menu(player *me, enemy *they) {
       while (i < 3) {
         nmap->refresh();
         nmap->displaymap();
+        nmap->move();
         i++;
       }
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
@@ -66,8 +68,7 @@ void menu(player *me, enemy *they) {
     }
     default: {
       cout << "INPUT ONLY A, B, OR C. NO NUMBERS OR EXTRANEOUS CHARACTERS "
-              "ALLOWED"
-           << endl;
+              "ALLOWED"<< endl;
       return menu(me, they);
     }
     }

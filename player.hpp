@@ -27,7 +27,18 @@ public:
   int getx() { return locationx; }
   int gety() { return locationy; }
   std::string getchar() { return this->model; }
-
+  void up(){
+    this->locationx++;
+  }
+  void right(){
+    this->locationy++;
+  }
+   void left(){
+    this->locationy--;
+  }
+   void down(){
+    this->locationx--;
+  }
 private:
   // used for moving around graph/map data structure
   int locationx;
