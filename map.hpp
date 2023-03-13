@@ -4,7 +4,8 @@
 class map {
 
 public:
-  map(unsigned int n, unsigned int m, player *p, enemy *e) {
+  map(unsigned int n, unsigned int m, player *p, enemy *e , std::string icon) {
+   this->icon=icon;
     this->rows = n;
     this->columns = m;
     this->p = p;
@@ -41,8 +42,9 @@ public:
       return;
     } else {
       for (int i = 0; i < rows; i++) {
-        if (i == player()->getx()) {
           for (int k = 0; k < columns; k++) {
+                  mat[i][k]=this->icon;
+              if (i == player()->getx()) {
             if (k == player()->gety()) {
               mat[i][k] = player()->getchar();
             }

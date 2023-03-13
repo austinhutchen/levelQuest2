@@ -23,7 +23,7 @@ void menu(player *me, enemy *they) {
     switch (choice) {
     case 'a': {
       // large map construction of 2d vector on the heap
-      map *nmap = new map(30, 30, me, they);
+      map *nmap = new map(30, 30, me, they,"⠂");
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       int i = 0;
       // overall movement structure for game, modify loop condition for
@@ -38,7 +38,7 @@ void menu(player *me, enemy *they) {
     }
     case 'b': {
       // medium map construct of 2d vector on heap
-      map *nmap = new map(20, 20, me, they);
+      map *nmap = new map(20, 20, me, they,"⠂");
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
@@ -51,7 +51,7 @@ void menu(player *me, enemy *they) {
     }
     case 'c': {
       // small map construct of 2d vector on heap
-      map *nmap = new map(10, 10, me, they);
+      map *nmap = new map(10, 10, me, they,"⠂");
       // overall movement structure for game
       int i = 0;
       // overall movement structure for game, modify loop condition for

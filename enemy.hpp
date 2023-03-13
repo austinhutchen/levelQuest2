@@ -24,6 +24,7 @@ public:
     }
     std::cout << std::endl;
   }
+  
   int getx() { return locationx; }
 
   int gety() { return locationy; }
