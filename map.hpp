@@ -10,7 +10,7 @@ public:
     this->columns = m;
     this->p = p;
     this->e = e;
-    this->icon = "🚛";
+    this->icon = icon;
     for (int i = 0; i < rows; i++) {
       std::vector<std::string> dub;
       mat.push_back(dub);
