@@ -110,5 +110,9 @@ int main() {
   enemy *evil = new enemy(10, "😡");
   player *you = new player(10, "ℸ");
   menu(you, evil);
+  delete evil;
+  delete you;
+  evil=nullptr;
+  you=nullptr;
   return 0;
 }

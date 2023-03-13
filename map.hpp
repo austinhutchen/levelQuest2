@@ -84,8 +84,10 @@ void move(){
    }
  }
 }
-
-
+// build destructor for player, enemy, and map array
+void destroy(){
+ 
+}
 
 private:
   // 2d dynamic array for building map size

@@ -24,7 +24,7 @@ public:
     }
     std::cout << std::endl;
   }
-  
+
   int getx() { return locationx; }
 
   int gety() { return locationy; }
@@ -32,7 +32,7 @@ public:
   std::string getchar() { return this->model; }
   
   void up(){
-    this->locationx++;
+    this->locationx--;
   }
   void right(){
     this->locationy++;
@@ -41,7 +41,7 @@ public:
     this->locationy--;
   }
    void down(){
-    this->locationx--;
+    this->locationx++;
   }
 private:
   std::vector<std::string> health;
