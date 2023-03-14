@@ -43,9 +43,19 @@ public:
    void down(){
     this->locationx++;
   }
+  void setboundx(unsigned xbound){
+  this->boundx=xbound;
+  }
+  void setboundy(unsigned ybound){
+  this->boundy=ybound;
+  }
 private:
   std::vector<std::string> health;
   std::string model;
   int locationx;
   int locationy;
+  unsigned int boundx;
+  unsigned int boundy;
+
 };
+

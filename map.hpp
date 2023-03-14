@@ -11,6 +11,10 @@ public:
     this->p = p;
     this->e = e;
     this->icon = icon;
+    p->setboundx(n);
+    p->setboundy(m);
+    e->setboundx(n);
+    e->setboundy(m);
     for (int i = 0; i < rows; i++) {
       std::vector<std::string> dub;
       mat.push_back(dub);
@@ -86,7 +90,7 @@ void move(){
 }
 // build destructor for player, enemy, and map array
 void destroy(){
- 
+
 }
 
 private:

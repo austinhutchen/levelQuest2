@@ -39,10 +39,18 @@ public:
    void down(){
     this->locationx++;
   }
+   void setboundx(unsigned xbound){
+  this->boundx=xbound;
+  }
+  void setboundy(unsigned ybound){
+  this->boundy=ybound;
+  }
 private:
   // used for moving around graph/map data structure
   int locationx;
   int locationy;
   std::string model;
   std::vector<std::string> health;
+   unsigned int boundx;
+  unsigned int boundy;
 };
