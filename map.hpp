@@ -4,8 +4,8 @@
 class map {
 
 public:
-  map(unsigned int n, unsigned int m, player *p, enemy *e , std::string icon) {
-   this->icon=icon;
+  map(unsigned int n, unsigned int m, player *p, enemy *e, std::string icon) {
+    this->icon = icon;
     this->rows = n;
     this->columns = m;
     this->p = p;
@@ -46,9 +46,9 @@ public:
       return;
     } else {
       for (int i = 0; i < rows; i++) {
-          for (int k = 0; k < columns; k++) {
-                  mat[i][k]=this->icon;
-              if (i == player()->getx()) {
+        for (int k = 0; k < columns; k++) {
+          mat[i][k] = this->icon;
+          if (i == player()->getx()) {
             if (k == player()->gety()) {
               mat[i][k] = player()->getchar();
             }
@@ -58,40 +58,38 @@ public:
     }
   }
 
-void move(){
- char choice;
- std::cout << " Where would you like to move to?"  <<std::endl;
- std::cout << "USE wasd FOR UP-DOWN-LEFT-RIGHT" << std::endl;
- std::cin >> choice;
- switch(choice){
-   case 'w':{
-    p->up();
-    break;
-   }
-   case 'a':{
-   p->left();
-    break;
-   }
-    case 's':{
-   p->down();
-    break;
-   }
+  void move() {
+    char choice;
+    std::cout << " Where would you like to move to?" << std::endl;
+    std::cout << "USE wasd FOR UP-DOWN-LEFT-RIGHT" << std::endl;
+    std::cin >> choice;
+    switch (choice) {
+    case 'w': {
+      p->up();
+      break;
+    }
+    case 'a': {
+      p->left();
+      break;
+    }
+    case 's': {
+      p->down();
+      break;
+    }
 
-    case 'd':{
-    p->right();
-    break;
-   }
+    case 'd': {
+      p->right();
+      break;
+    }
 
-   default: {
-    std::cout << "Exiting.." <<std::endl;
-    return;
-   }
- }
-}
-// build destructor for player, enemy, and map array
-void destroy(){
-
-}
+    default: {
+      std::cout << "Exiting.." << std::endl;
+      return;
+    }
+    }
+  }
+  // build destructor for player, enemy, and map array
+  void destroy() {}
 
 private:
   // 2d dynamic array for building map size

@@ -22,7 +22,7 @@ void menu(player *me, enemy *they) {
     switch (choice) {
     case 'a': {
       // large map construction of 2d vector on the heap
-      map *nmap = new map(45, 50, me, they,"⠂");
+      map *nmap = new map(45, 50, me, they, "⠂");
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       int i = 0;
       // overall movement structure for game, modify loop condition for
@@ -37,21 +37,21 @@ void menu(player *me, enemy *they) {
     }
     case 'b': {
       // medium map construct of 2d vector on heap
-      map *nmap = new map(30, 35, me, they,"⠂");
+      map *nmap = new map(30, 35, me, they, "⠂");
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
       while (true) {
         nmap->refresh();
         nmap->displaymap();
-         nmap->move();
+        nmap->move();
         i++;
       }
       break;
     }
     case 'c': {
       // small map construct of 2d vector on heap
-      map *nmap = new map(15, 20, me, they,"⠂");
+      map *nmap = new map(15, 20, me, they, "⠂");
       // overall movement structure for game
       int i = 0;
       // overall movement structure for game, modify loop condition for
@@ -68,7 +68,8 @@ void menu(player *me, enemy *they) {
     }
     default: {
       cout << "INPUT ONLY A, B, OR C. NO NUMBERS OR EXTRANEOUS CHARACTERS "
-              "ALLOWED"<< endl;
+              "ALLOWED"
+           << endl;
       return menu(me, they);
     }
     }
@@ -111,7 +112,7 @@ int main() {
   menu(you, evil);
   delete evil;
   delete you;
-  evil=nullptr;
-  you=nullptr;
+  evil = nullptr;
+  you = nullptr;
   return 0;
 }

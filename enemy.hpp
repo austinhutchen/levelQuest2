@@ -30,26 +30,30 @@ public:
   int gety() { return locationy; }
 
   std::string getchar() { return this->model; }
-  
-  void up(){
 
-    this->locationx--;
+  void up() {
+    if (locationx != 0) {
+      this->locationx--;
+    }
   }
-  void right(){
-          this->locationy++;
+  void right() {
+    if (locationy != boundy - 1) {
+      this->locationy++;
+    }
   }
-   void left(){
-    this->locationy--;
+  void left() {
+    if (locationy != 0) {
+      this->locationy--;
+    }
   }
-   void down(){
-    this->locationx++;
+  void down() {
+    if (locationx != boundx - 1) {
+      this->locationx++;
+    }
   }
-  void setboundx(unsigned xbound){
-  this->boundx=xbound;
-  }
-  void setboundy(unsigned ybound){
-  this->boundy=ybound;
-  }
+  void setboundx(unsigned xbound) { this->boundx = xbound; }
+  void setboundy(unsigned ybound) { this->boundy = ybound; }
+
 private:
   std::vector<std::string> health;
   std::string model;
@@ -57,6 +61,4 @@ private:
   int locationy;
   unsigned int boundx;
   unsigned int boundy;
-
 };
-
