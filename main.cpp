@@ -2,12 +2,11 @@
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
 void menu(player *me, enemy *they) {
-  cout << "[**MAIN MENU**]" << endl;
+  cout << "====MAIN MENU====" << endl;
   cout << "1: New save" << endl;
   cout << "2. Load Save" << endl;
   cout << "3. Choose character" << endl;
   cout << "4. Exit" << endl;
-
   short int main_choice;
   // choice is reused for choices requiring integer or character input
   char choice;
