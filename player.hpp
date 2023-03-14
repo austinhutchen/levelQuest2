@@ -31,6 +31,9 @@ public:
     this->locationx--;
   }
   void right(){
+    if(gety()!=boundy-1){
+          this->locationy++;
+    }
     this->locationy++;
   }
    void left(){
