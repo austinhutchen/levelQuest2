@@ -27,33 +27,35 @@ public:
   int getx() { return locationx; }
   int gety() { return locationy; }
   std::string getchar() { return this->model; }
-  void up(){
-    this->locationx--;
-  }
-  void right(){
-    if(gety()!=boundy-1){
-          this->locationy++;
+  void up() {
+    if (locationx != 0) {
+      this->locationx--;
     }
-    this->locationy++;
   }
-   void left(){
-    this->locationy--;
+  void right() {
+    if (locationy != boundy - 1) {
+      this->locationy++;
+    }
   }
-   void down(){
-    this->locationx++;
+  void left() {
+    if (locationy != 0) {
+      this->locationy--;
+    }
   }
-   void setboundx(unsigned xbound){
-  this->boundx=xbound;
+  void down() {
+    if (locationx != boundx - 1) {
+      this->locationx++;
+    }
   }
-  void setboundy(unsigned ybound){
-  this->boundy=ybound;
-  }
+  void setboundx(unsigned xbound) { this->boundx = xbound; }
+  void setboundy(unsigned ybound) { this->boundy = ybound; }
+
 private:
   // used for moving around graph/map data structure
   int locationx;
   int locationy;
   std::string model;
   std::vector<std::string> health;
-   unsigned int boundx;
+  unsigned int boundx;
   unsigned int boundy;
 };
