@@ -2,7 +2,7 @@
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
 void menu(player *me, enemy *they) {
-  cout << "====MAIN MENU====" << endl;
+  cout << "=====MAIN MENU=====" << endl;
   cout << "1: New save" << endl;
   cout << "2. Load Save" << endl;
   cout << "3. Choose character" << endl;
@@ -51,7 +51,7 @@ void menu(player *me, enemy *they) {
     }
     case 'c': {
       // small map construct of 2d vector on heap
-      map *nmap = new map(15, 20, me, they, "⠂");
+      map *nmap = new map(25, 30, me, they, "⠂");
       // overall movement structure for game
       int i = 0;
       // overall movement structure for game, modify loop condition for
