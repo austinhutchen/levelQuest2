@@ -67,7 +67,7 @@ public:
     }
   }
 
-  void move() {
+  void move(bool &exit) {
     char choice;
     std::cout << " Where would you like to move to?" << std::endl;
     std::cout << "USE wasd FOR UP-DOWN-LEFT-RIGHT" << std::endl;
@@ -93,6 +93,7 @@ public:
 
     default: {
       std::cout << "Exiting.." << std::endl;
+      exit=true;
       return;
     }
     }

@@ -27,11 +27,16 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
+       bool exit=false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
-        nmap->move();
+        nmap->move(exit);
         i++;
+        if(exit==true){
+          delete nmap;
+          goto c4;
+        }
       }
       break;
     }
@@ -41,11 +46,16 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
+       bool exit=false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
-        nmap->move();
+        nmap->move(exit);
         i++;
+        if(exit==true){
+          delete nmap;
+          goto c4;
+        }
       }
       break;
     }
@@ -56,11 +66,16 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
+      bool exit=false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
-        nmap->move();
+        nmap->move(exit);
         i++;
+        if(exit==true){
+          delete nmap;
+          goto c4;
+        }
       }
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
 
@@ -91,9 +106,10 @@ void menu(player *me, enemy *they) {
     break;
   }
 
-  case 4: {
+ c4: case 4: {
     // quit
     cout << "Goodbye!" << endl;
+
     return;
   }
 
