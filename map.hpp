@@ -41,6 +41,10 @@ public:
   enemy *enemy() { return this->e; }
 
   void refresh() {
+    unsigned int ex=enemy()->getx();
+    unsigned int ey=enemy()->gety();
+    unsigned int px = player()->getx();
+    unsigned int py=player()->gety();
     if (mat.size() == 0) {
       std::cout << "empty map" << std::endl;
       return;
@@ -48,9 +52,14 @@ public:
       for (int i = 0; i < rows; i++) {
         for (int k = 0; k < columns; k++) {
           mat[i][k] = this->icon;
-          if (i == player()->getx()) {
-            if (k == player()->gety()) {
+          if (i == px) {
+            if (k == py) {
               mat[i][k] = player()->getchar();
+            }
+          }
+          if(i==ex){
+            if(k==ey){
+              mat[i][k] = enemy()->getchar();
             }
           }
         }
