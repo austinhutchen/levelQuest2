@@ -75,19 +75,23 @@ public:
     switch (choice) {
     case 'w': {
       p->up();
+      e->move();
       break;
     }
     case 'a': {
       p->left();
+       e->move();
       break;
     }
     case 's': {
       p->down();
+       e->move();
       break;
     }
 
     case 'd': {
       p->right();
+       e->move();
       break;
     }
 

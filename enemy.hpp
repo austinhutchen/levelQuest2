@@ -51,6 +51,40 @@ public:
       this->locationx++;
     }
   }
+  void move(){
+  // generate a random number from 0 to 5, if we get 0-3 the enemy will move in the direction
+  srand(time(NULL));
+  int choice = rand()%5;
+  switch(choice){
+    case 0:
+    {
+      up();
+      break;
+    }
+
+    case 1:{
+      down();
+      break;
+    }
+    case 2:{
+      left();
+      break;
+    }
+    case 3:{
+    right();
+    break;
+    }
+
+
+    default:{
+      return;
+    }
+  }
+
+
+
+
+  }
   void setboundx(unsigned xbound) { this->boundx = xbound; }
   void setboundy(unsigned ybound) { this->boundy = ybound; }
 

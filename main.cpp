@@ -83,8 +83,7 @@ void menu(player *me, enemy *they) {
     }
     default: {
       cout << "INPUT ONLY A, B, OR C. NO NUMBERS OR EXTRANEOUS CHARACTERS "
-              "ALLOWED"
-           << endl;
+              "ALLOWED" << endl;
       return menu(me, they);
     }
     }
