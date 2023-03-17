@@ -8,6 +8,7 @@ public:
   enemy(int bound, std::string model) {
     this->locationx = 0;
     this->locationy = 0;
+      srand(time(NULL));
     setchar(model);
     for (int i = 0; i < 10; i++) {
       health.push_back("❤️");
@@ -53,7 +54,6 @@ public:
   }
   void move(){
   // generate a random number from 0 to 5, if we get 0-3 the enemy will move in the direction
-  srand(time(NULL));
   int choice = rand()%5;
   switch(choice){
     case 0:
