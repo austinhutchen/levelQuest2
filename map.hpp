@@ -51,7 +51,7 @@ public:
       std::cout << "empty map" << std::endl;
       return;
     } else {
-#pragma omp parallel for
+          #pragma omp parallel for
       for (int i = 0; i < rows; i++) {
         for (int k = 0; k < columns; k++) {
           mat[i][k] = this->icon;
