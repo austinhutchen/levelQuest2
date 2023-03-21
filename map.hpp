@@ -1,7 +1,6 @@
 #pragma ONCE
 #include "./enemy.hpp"
 #include "./player.hpp"
-   #pragma omp parallel for
 class map {
 
 public:
@@ -16,6 +15,7 @@ public:
     p->setboundy(m);
     e->setboundx(n);
     e->setboundy(m);
+#pragma omp parallel for
     for (int i = 0; i < rows; i++) {
       std::vector<std::string> dub;
       mat.push_back(dub);
@@ -28,6 +28,7 @@ public:
   }
 
   void displaymap() {
+#pragma omp parallel for
     for (int i = 0; i < rows; i++) {
 
       for (int k = 0; k < columns; k++) {
@@ -50,6 +51,7 @@ public:
       std::cout << "empty map" << std::endl;
       return;
     } else {
+#pragma omp parallel for
       for (int i = 0; i < rows; i++) {
         for (int k = 0; k < columns; k++) {
           mat[i][k] = this->icon;
@@ -67,19 +69,20 @@ public:
       }
     }
   }
-void clower(char s){
-     if(s>='A' && s<='Z'){
-     s -=('A'-'a');
-   }
-}
-
-void slower(std::string s){
-   for(int i=0;i<s.size();i++){
-   if(s[i]>='A' && s[i]<='Z'){
-     s[i] -=('A'-'a');
-   }
+  void clower(char s) {
+    if (s >= 'A' && s <= 'Z') {
+      s -= ('A' - 'a');
+    }
   }
-}
+
+  void slower(std::string s) {
+#pragma omp parallel for
+    for (int i = 0; i < s.size(); i++) {
+      if (s[i] >= 'A' && s[i] <= 'Z') {
+        s[i] -= ('A' - 'a');
+      }
+    }
+  }
   void move(bool &exit) {
     char choice;
     std::cout << " Where would you like to move to?" << std::endl;

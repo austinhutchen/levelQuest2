@@ -2,9 +2,8 @@
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
 
-
 void menu(player *me, enemy *they) {
-     #pragma omp parallel for
+#pragma omp parallel for
   cout << "1: New save" << endl;
   cout << "2. Load Save" << endl;
   cout << "3. Choose character" << endl;
@@ -21,9 +20,9 @@ void menu(player *me, enemy *they) {
     cout << "PRESS (B) FOR MEDIUM ADVENTURE" << endl;
     cout << "PRESS (C) FOR SMALL ADVENTURE" << endl;
     cin >> choice;
-if(choice>='A' && choice<='Z'){
-     choice -=('A'-'a');
-   }
+    if (choice >= 'A' && choice <= 'Z') {
+      choice -= ('A' - 'a');
+    }
     switch (choice) {
     case 'a': {
       // large map construction of 2d vector on the heap
@@ -33,6 +32,7 @@ if(choice>='A' && choice<='Z'){
       // overall movement structure for game, modify loop condition for
       // turn-based movement
       bool exit = false;
+#pragma omp parallel for
       while (true) {
         nmap->refresh();
         nmap->displaymap();
@@ -52,6 +52,7 @@ if(choice>='A' && choice<='Z'){
       // overall movement structure for game, modify loop condition for
       // turn-based movement
       bool exit = false;
+#pragma omp parallel for
       while (true) {
         nmap->refresh();
         nmap->displaymap();
@@ -72,6 +73,7 @@ if(choice>='A' && choice<='Z'){
       // overall movement structure for game, modify loop condition for
       // turn-based movement
       bool exit = false;
+    #pragma omp parallel for
       while (true) {
         nmap->refresh();
         nmap->displaymap();

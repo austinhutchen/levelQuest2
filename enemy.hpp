@@ -1,7 +1,6 @@
 #pragma ONCE
 #include <iostream>
 #include <vector>
-   #pragma omp parallel for
 class enemy {
 
 public:
@@ -19,6 +18,7 @@ public:
   void setchar(std::string val) { this->model = val; }
 
   void gethp() {
+       #pragma omp parallel for
     std::cout << this->model << "HEALTH :" << std::endl;
     for (int i = 0; i < health.size(); i++) {
       std::cout << health[i];
