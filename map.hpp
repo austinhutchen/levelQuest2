@@ -1,6 +1,7 @@
 #pragma ONCE
 #include "./enemy.hpp"
 #include "./player.hpp"
+   #pragma omp parallel for
 class map {
 
 public:
@@ -41,10 +42,10 @@ public:
   enemy *enemy() { return this->e; }
 
   void refresh() {
-    unsigned int ex=enemy()->getx();
-    unsigned int ey=enemy()->gety();
+    unsigned int ex = enemy()->getx();
+    unsigned int ey = enemy()->gety();
     unsigned int px = player()->getx();
-    unsigned int py=player()->gety();
+    unsigned int py = player()->gety();
     if (mat.size() == 0) {
       std::cout << "empty map" << std::endl;
       return;
@@ -57,8 +58,8 @@ public:
               mat[i][k] = player()->getchar();
             }
           }
-          if(i==ex){
-            if(k==ey){
+          if (i == ex) {
+            if (k == ey) {
               mat[i][k] = enemy()->getchar();
             }
           }
@@ -66,7 +67,19 @@ public:
       }
     }
   }
+void clower(char s){
+     if(s>='A' && s<='Z'){
+     s -=('A'-'a');
+   }
+}
 
+void slower(std::string s){
+   for(int i=0;i<s.size();i++){
+   if(s[i]>='A' && s[i]<='Z'){
+     s[i] -=('A'-'a');
+   }
+  }
+}
   void move(bool &exit) {
     char choice;
     std::cout << " Where would you like to move to?" << std::endl;
@@ -80,24 +93,24 @@ public:
     }
     case 'a': {
       p->left();
-       e->move();
+      e->move();
       break;
     }
     case 's': {
       p->down();
-       e->move();
+      e->move();
       break;
     }
 
     case 'd': {
       p->right();
-       e->move();
+      e->move();
       break;
     }
 
     default: {
       std::cout << "Exiting.." << std::endl;
-      exit=true;
+      exit = true;
       return;
     }
     }

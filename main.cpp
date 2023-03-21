@@ -1,8 +1,10 @@
 
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
+
+
 void menu(player *me, enemy *they) {
-  cout << "=====MAIN MENU=====" << endl;
+     #pragma omp parallel for
   cout << "1: New save" << endl;
   cout << "2. Load Save" << endl;
   cout << "3. Choose character" << endl;
@@ -19,21 +21,24 @@ void menu(player *me, enemy *they) {
     cout << "PRESS (B) FOR MEDIUM ADVENTURE" << endl;
     cout << "PRESS (C) FOR SMALL ADVENTURE" << endl;
     cin >> choice;
+if(choice>='A' && choice<='Z'){
+     choice -=('A'-'a');
+   }
     switch (choice) {
     case 'a': {
       // large map construction of 2d vector on the heap
-      map *nmap = new map(45, 50, me, they, "⠂");
+      map *nmap = new map(60, 66, me, they, "⠂");
       // MAIN GAME LOOP NOW GOES HERE WITH PLAYER OPTIONS <-----------
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
-       bool exit=false;
+      bool exit = false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
         nmap->move(exit);
         i++;
-        if(exit==true){
+        if (exit == true) {
           delete nmap;
           goto c4;
         }
@@ -42,17 +47,17 @@ void menu(player *me, enemy *they) {
     }
     case 'b': {
       // medium map construct of 2d vector on heap
-      map *nmap = new map(30, 35, me, they, "⠂");
+      map *nmap = new map(40, 45, me, they, "⠂");
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
-       bool exit=false;
+      bool exit = false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
         nmap->move(exit);
         i++;
-        if(exit==true){
+        if (exit == true) {
           delete nmap;
           goto c4;
         }
@@ -66,13 +71,13 @@ void menu(player *me, enemy *they) {
       int i = 0;
       // overall movement structure for game, modify loop condition for
       // turn-based movement
-      bool exit=false;
+      bool exit = false;
       while (true) {
         nmap->refresh();
         nmap->displaymap();
         nmap->move(exit);
         i++;
-        if(exit==true){
+        if (exit == true) {
           delete nmap;
           goto c4;
         }
@@ -83,7 +88,8 @@ void menu(player *me, enemy *they) {
     }
     default: {
       cout << "INPUT ONLY A, B, OR C. NO NUMBERS OR EXTRANEOUS CHARACTERS "
-              "ALLOWED" << endl;
+              "ALLOWED"
+           << endl;
       return menu(me, they);
     }
     }
@@ -105,7 +111,8 @@ void menu(player *me, enemy *they) {
     break;
   }
 
- c4: case 4: {
+  c4:
+  case 4: {
     // quit
     cout << "Goodbye!" << endl;
 
@@ -129,5 +136,5 @@ int main() {
   delete you;
   evil = nullptr;
   you = nullptr;
-  return 0;
+  return 0x0;
 }

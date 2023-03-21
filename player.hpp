@@ -1,7 +1,7 @@
 #pragma ONCE
 #include <iostream>
 #include <vector>
-
+   #pragma omp parallel for
 class player {
 public:
   player(int bound, std::string model) {
