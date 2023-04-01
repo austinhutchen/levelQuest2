@@ -4,6 +4,8 @@
 class player {
 public:
   player(int bound, std::string model) {
+    lvl=0;
+    hp=0;
     this->locationx = 0;
     this->locationy = 0;
     setchar(model);
@@ -21,11 +23,15 @@ public:
     for (int i = 0; i < health.size(); i++) {
       std::cout << health[i];
     }
+    hp=health.size();
     std::cout << std::endl;
   }
-
-  int getx() { return locationx; }
-  int gety() { return locationy; }
+ short unsigned rethp(){
+  // 7 IS MAX HP VALUE, ENSURE VECTOR DOES NOT GET GREATER THAN 7
+  return  this->hp;
+ }
+  unsigned int getx() { return locationx; }
+  unsigned int gety() { return locationy; }
   std::string getchar() { return this->model; }
   void up() {
     if (locationx != 0) {
@@ -49,13 +55,20 @@ public:
   }
   void setboundx(unsigned xbound) { this->boundx = xbound; }
   void setboundy(unsigned ybound) { this->boundy = ybound; }
-
+  void levelup(){
+  lvl++;
+  }
+  unsigned short level(){
+    return this->lvl;
+  }
 private:
   // used for moving around graph/map data structure
-  int locationx;
-  int locationy;
+  short unsigned lvl;
+  unsigned int locationx;
+  unsigned int locationy;
   std::string model;
   std::vector<std::string> health;
+  short unsigned hp;
   unsigned int boundx;
   unsigned int boundy;
 };
