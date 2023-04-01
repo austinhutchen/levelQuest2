@@ -17,7 +17,7 @@ public:
 
   void setchar(std::string val) { this->model = val; }
 
-  void gethp() {
+  void gethp() {;
     std::cout << this->model << "HEALTH :" << std::endl;
     for (int i = 0; i < health.size(); i++) {
       std::cout << health[i];
@@ -73,7 +73,7 @@ public:
       right();
       break;
     }
-
+  // case 4 defaults to default case so that enemy will sometimes do nothing
     default: {
       return;
     }
