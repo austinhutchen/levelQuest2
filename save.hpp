@@ -3,12 +3,15 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <stack>
 #include "player.hpp"
 using namespace std;
 #pragma ONCE
 
 class stats{
 // write a new splitstring function, this one is messy
+// use stack to pop until valid seperator found, seperate into a vector where each location is split
+
 int split(string inputstring, char seperator, string arr[], int size)
 {
   // number of split strings stored in count
@@ -129,6 +132,7 @@ int clear()
 }
 
 private:
+std::stack<char> splice;
 int inventory;
 int difficulty;
 };
