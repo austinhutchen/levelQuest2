@@ -8,7 +8,7 @@ using namespace std;
 #pragma ONCE
 
 class stats{
-
+// write a new splitstring function, this one is messy
 int split(string inputstring, char seperator, string arr[], int size)
 {
   // number of split strings stored in count
