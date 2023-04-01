@@ -14,7 +14,10 @@ public:
     }
     std::cout << std::endl;
   }
-
+ void sethp(short unsigned nhp){
+ this->hp=nhp;
+ return;
+ }
   void setchar(std::string input) { this->model = input; }
 
   void gethp() {
@@ -60,6 +63,11 @@ public:
   }
   unsigned short level(){
     return this->lvl;
+  }
+  //for FILE I/O
+  void setlevel(short unsigned nlvl){
+  this->lvl=nlvl;
+  return;
   }
 private:
   // used for moving around graph/map data structure

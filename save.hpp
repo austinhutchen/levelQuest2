@@ -74,7 +74,7 @@ bool setsave(player *p)
   return 0;
 }
 
-int getsave()
+int getsave(player *p)
 {
   string arr[5];
   ifstream fin;
@@ -90,9 +90,9 @@ int getsave()
   {
     int s=split(line,',', arr,7);
     // error testing above
-    character = arr[0];
-    level = stoi(arr[1]);
-    health = stoi(arr[2]);
+     p->setchar(arr[0]) ;
+    p->setlevel(stoi(arr[1]));
+    p->sethp(stoi(arr[2]));
     inventory = stoi(arr[3]);
     difficulty = stoi(arr[4]);
     fin.close();
@@ -102,15 +102,17 @@ int getsave()
   return -1;
 }
 
-int getlevel()
-{
-  return level;
+void fsafe(string filename){
+// CHECKS IF FILE IS SAFE FOR READ WITHIN CONSTRAINTS OF CLASSSES TO PREVENT BUFFER OVERFLOW AND HACKING
+ifstream file;
+bool g=true;
+file.open(filename);
+if(g){
+
 }
 
-int gethealth()
-{
-  return health;
 }
+
 
 int clear()
 {
@@ -127,9 +129,6 @@ int clear()
 }
 
 private:
-int health;
-int level;
-string character;
 int inventory;
 int difficulty;
 };
