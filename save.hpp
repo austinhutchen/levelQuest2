@@ -6,7 +6,7 @@ class stats {
   // use stack to pop until valid seperator found, seperate into a vector where
   // each location is split
   public:
-  void stacksplice(vector<string> spliced, string str, char delim) {
+  void stacksplice(vector<string> &spliced, string str, char delim) {
     // vector has each spliced index of string plassed into it
     // string will be pushed onto stack and popped
     // temp string for popping off stack
