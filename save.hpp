@@ -1,138 +1,109 @@
+#include "player.hpp"
 #include <cctype>
 #include <fstream>
-#include <iostream>
 #include <iomanip>
-#include <string>
+#include <iostream>
 #include <stack>
-#include "player.hpp"
+#include <string>
 using namespace std;
 #pragma ONCE
 
-class stats{
-// write a new splitstring function, this one is messy
-// use stack to pop until valid seperator found, seperate into a vector where each location is split
+class stats {
+  // write a new splitstring function, this one is messy
+  // use stack to pop until valid seperator found, seperate into a vector where
+  // each location is split
 
-int split(string inputstring, char seperator, string arr[], int size)
-{
-  // number of split strings stored in count
-  int count = 0;
-  int i = 0;
-  int start = 0;
-  int end = 0;
-  // input validation
-  if (inputstring.empty())
-  {
+  void stacksplice(vector<string> spliced, string str, char delim) {
+    // vector has each spliced index of string plassed into it
+    // string will be pushed onto stack and popped
+    // temp string for popping off stack
+    string temp;
+    // clear stack for use
+    clear();
+    int i = str.size();
+
+    for (; i > 0; i--) {
+      this->splice.push(str[i]);
+    }
+
+    while (!this->splice.empty()) {
+      if (this->splice.top() == delim) {
+        spliced.push_back(temp);
+      } else {
+        temp += this->splice.top();
+      }
+      splice.pop();
+    }
+  }
+
+  stats() {
+    int defeated = 0;
+    int health = 0;
+    int level = 0;
+    string character = "";
+    difficulty = 0;
+  }
+
+  bool setsave(player *p) {
+    ofstream file1("saves.txt");
+    if (file1.fail()) {
+      cout << "File could not be opened. " << endl;
+      return 1;
+    }
+    file1 << p->getchar() << ", " << p->level() << " , " << p->rethp() << " ,"
+          << inventory << " ," << difficulty << endl;
+    file1.close();
     return 0;
   }
 
-  while (end < inputstring.size())
-  {
-    if (inputstring[end] == seperator)
-    {
-      int length = end - start;
-      // if length is 0, use -1 (error is here)
-      if (i == length)
-      {
-        return -1;
-      }
-      arr[i++] = inputstring.substr(start, length);
-      // move up 1 to avoid delimiter
-      end++;
-      start = end;
+  int getsave(player *p) {
+    vector<string> vec;
+    ifstream fin;
+    string line;
+    fin.open("saves.txt");
+    if (fin.fail()) {
+      cout << "File could not be opened. " << endl;
+      return -1;
     }
-    else
-    {
-      end++;
+    fin.seekg(0, ios::beg);
+    vector<string> split;
+    while (getline(fin, line)) {
+      stacksplice(split, line, ',');
+      // error testing above
+      p->setchar(split[0]);
+      p->setlevel(stoi(split[1]));
+      p->sethp(stoi(split[2]));
+      inventory = stoi(split[3]);
+      difficulty = stoi(split[4]);
+      fin.close();
+      return 1;
     }
-  }
-  int length = end - start;
-  // error checking for array size greater than the required
-  if (i >= size)
-  {
-    return -1;
-  }
-  arr[i++] = inputstring.substr(start, length);
-  return i;
-}
-
-stats()
-{
-  int defeated = 0;
-  int health = 0;
-  int level = 0;
-  string character = "";
-  difficulty=0;
-}
-
-bool setsave(player *p)
-{
-  ofstream file1("saves.txt");
-  if (file1.fail())
-  {
-    cout << "File could not be opened. " << endl;
-    return 1;
-  }
-  file1<<p->getchar()<<", "<< p->level() <<" , "<< p->rethp() <<" ,"<<inventory <<" ,"<<difficulty << endl;
-  file1.close();
-  return 0;
-}
-
-int getsave(player *p)
-{
-  string arr[5];
-  ifstream fin;
-  string line;
-  fin.open("saves.txt");
-  if (fin.fail())
-  {
-    cout << "File could not be opened. " << endl;
-    return -1;
-  }
-  fin.seekg(0, ios::beg);
-  while (getline(fin, line))
-  {
-    int s=split(line,',', arr,7);
-    // error testing above
-     p->setchar(arr[0]) ;
-    p->setlevel(stoi(arr[1]));
-    p->sethp(stoi(arr[2]));
-    inventory = stoi(arr[3]);
-    difficulty = stoi(arr[4]);
     fin.close();
-    return 1;
-  }
-  fin.close();
-  return -1;
-}
-
-void fsafe(string filename){
-// CHECKS IF FILE IS SAFE FOR READ WITHIN CONSTRAINTS OF CLASSSES TO PREVENT BUFFER OVERFLOW AND HACKING
-ifstream file;
-bool g=true;
-file.open(filename);
-if(g){
-
-}
-
-}
-
-
-int clear()
-{
-  ofstream fout("saves.txt");
-  if (fout.fail())
-  {
-    cout << "File could not be opened. " << endl;
     return -1;
   }
-  else
-  {
-    return 1;
+
+  void fsafe(string filename) {
+    // CHECKS IF FILE IS SAFE FOR READ WITHIN CONSTRAINTS OF CLASSSES TO PREVENT
+    // BUFFER OVERFLOW AND HACKING
+    ifstream file;
+    bool g = true;
+    file.open(filename);
+    if (g) {
+    }
   }
-}
+
+  int clear() {
+    ofstream fout("saves.txt");
+    if (fout.fail()) {
+      cout << "File could not be opened. " << endl;
+      return -1;
+    } else {
+      return 1;
+    }
+  }
 
 private:
-std::stack<char> splice;
-int inventory;
-int difficulty;
+  std::stack<char> splice;
+  int inventory;
+  int difficulty;
 };
