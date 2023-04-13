@@ -1,7 +1,7 @@
 
 #include "./include.h"
 // above is the include file for seperate libraries needed to run game
-
+#include "save.hpp"
 void menu(player *me, enemy *they) {
 #pragma omp parallel for
   cout << "1: New save" << endl;
@@ -9,6 +9,7 @@ void menu(player *me, enemy *they) {
   cout << "3. Choose character" << endl;
   cout << "4. Exit" << endl;
   short int main_choice;
+
   // choice is reused for choices requiring integer or character input
   char choice;
   cin >> main_choice;
@@ -73,7 +74,7 @@ void menu(player *me, enemy *they) {
       // overall movement structure for game, modify loop condition for
       // turn-based movement
       bool exit = false;
-    #pragma omp parallel for
+#pragma omp parallel for
       while (true) {
         nmap->refresh();
         nmap->displaymap();
@@ -117,8 +118,15 @@ void menu(player *me, enemy *they) {
   case 4: {
     // quit
     cout << "Goodbye!" << endl;
-
-    return;
+    bool success;
+    success = me->setsave();
+    if (success) {
+      cout << "SAVED SUCCESSFULLY TO LOCAL TXT" << endl;
+      return;
+    } else {
+      cout << "COULDNT SAVE SUCCESSFULLY, CHECK FORMATTING" << endl;
+      return;
+    }
   }
 
   default: {

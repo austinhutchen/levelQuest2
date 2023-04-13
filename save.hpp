@@ -1,13 +1,9 @@
 #include "player.hpp"
-#include <cctype>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <stack>
-#include <string>
-using namespace std;
 #pragma ONCE
 
+#include "fstream"
+#include "iostream"
+using namespace std;
 class stats {
   // write a new splitstring function, this one is messy
   // use stack to pop until valid seperator found, seperate into a vector where
@@ -84,15 +80,7 @@ class stats {
     return -1;
   }
 
-  void fsafe(string filename) {
-    // CHECKS IF FILE IS SAFE FOR READ WITHIN CONSTRAINTS OF CLASSSES TO PREVENT
-    // BUFFER OVERFLOW AND HACKING
-    ifstream file;
-    bool g = true;
-    file.open(filename);
-    if (g) {
-    }
-  }
+
 
   int clear() {
     ofstream fout("saves.txt");
