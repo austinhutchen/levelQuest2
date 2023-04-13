@@ -1,7 +1,8 @@
 #pragma ONCE
 #include <iostream>
 #include <vector>
-class player {
+#include "fstream"
+ class player {
 public:
   player(int bound, std::string model) {
     lvl=0;

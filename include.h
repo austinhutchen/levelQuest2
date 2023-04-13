@@ -9,6 +9,4 @@
 #include <iomanip>
 #include <stack>
 #include <string>
-
-#include "./algo.hpp"
 using namespace std;
