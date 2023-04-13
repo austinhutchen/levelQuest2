@@ -29,11 +29,11 @@ class stats {
     while (!this->splice.empty()) {
       if (this->splice.top() == delim) {
         spliced.push_back(temp);
-        temp="";
+        temp = "";
       } else {
         temp += this->splice.top();
       }
-      splice.pop();
+      this->splice.pop();
     }
   }
 
@@ -69,6 +69,7 @@ class stats {
     fin.seekg(0, ios::beg);
     vector<string> split;
     while (getline(fin, line)) {
+      split.clear();
       stacksplice(split, line, ',');
       // error testing above
       p->setchar(split[0]);
