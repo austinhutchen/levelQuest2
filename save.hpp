@@ -29,6 +29,7 @@ class stats {
     while (!this->splice.empty()) {
       if (this->splice.top() == delim) {
         spliced.push_back(temp);
+        temp="";
       } else {
         temp += this->splice.top();
       }
