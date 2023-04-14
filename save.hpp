@@ -1,5 +1,6 @@
 #pragma ONCE
-#include "map.hpp"
+#include "./enemy.hpp"
+#include "./player.hpp"
 using namespace std;
 class stats {
   // write a new splitstring function, this one is messy

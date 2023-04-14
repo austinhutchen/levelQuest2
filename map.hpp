@@ -1,6 +1,5 @@
 #pragma ONCE
-#include "./enemy.hpp"
-#include "./player.hpp"
+#include "save.hpp"
 class map {
 
 public:

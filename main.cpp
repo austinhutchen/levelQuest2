@@ -1,8 +1,7 @@
 
 
 // above is the include file for seperate libraries needed to run game
-#include "save.hpp"
-
+#include "map.hpp"
 void menu(player *me, enemy *they) {
 #pragma omp parallel for
   cout << "1: New save" << endl;
@@ -104,25 +103,24 @@ void menu(player *me, enemy *they) {
     // file read
     cout << "Loading.." << endl;
     bool good;
-    good=s->getsave(me);
-    if(good){
+    good = s->getsave(me);
+    if (good) {
       map *nmap = new map(25, 30, me, they, "⠂");
 #pragma omp parallel for
-    bool exit = false;
-    int i = 0;
-    while (true) {
-      nmap->refresh();
-      nmap->displaymap();
-      nmap->move(exit);
-      i++;
-      if (exit == true) {
-        delete nmap;
-        goto c4;
+      bool exit = false;
+      int i = 0;
+      while (true) {
+        nmap->refresh();
+        nmap->displaymap();
+        nmap->move(exit);
+        i++;
+        if (exit == true) {
+          delete nmap;
+          goto c4;
+        }
       }
-    }
-    }
-    else{
-      cout << "INVALID FILE READ, NO SAVES FOUND IN FILE SAVES.TXT" <<endl;
+    } else {
+      cout << "INVALID FILE READ, NO SAVES FOUND IN FILE SAVES.TXT" << endl;
     }
     return menu(me, they);
   }
