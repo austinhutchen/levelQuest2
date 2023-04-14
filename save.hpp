@@ -42,12 +42,12 @@ class stats {
     ofstream file1("saves.txt");
     if (file1.fail()) {
       cout << "File could not be opened. " << endl;
-      return 1;
+      return 0;
     }
     file1 << p->getchar() << ", " << p->level() << " , " << p->rethp() << " ,"
           << inventory << " ," << difficulty << endl;
     file1.close();
-    return 0;
+    return 1;
   }
 
   int getsave(player *p) {
