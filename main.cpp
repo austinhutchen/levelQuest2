@@ -103,7 +103,7 @@ void menu(player *me, enemy *they) {
   case 2: {
     // file read
     cout << "Loading.." << endl;
-    cout << "not done yet" << endl;
+    s->getsave(me);
     return menu(me, they);
     break;
   }
