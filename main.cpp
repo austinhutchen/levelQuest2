@@ -10,7 +10,7 @@ void menu(player *me, enemy *they) {
   cout << "3. Choose character" << endl;
   cout << "4. Exit" << endl;
   short int main_choice;
-  stats *s=new stats();
+  stats *s = new stats();
   // choice is reused for choices requiring integer or character input
   char choice;
   cin >> main_choice;
@@ -103,9 +103,28 @@ void menu(player *me, enemy *they) {
   case 2: {
     // file read
     cout << "Loading.." << endl;
-    s->getsave(me);
+    bool good;
+    good=s->getsave(me);
+    if(good){
+      map *nmap = new map(25, 30, me, they, "⠂");
+#pragma omp parallel for
+    bool exit = false;
+    int i = 0;
+    while (true) {
+      nmap->refresh();
+      nmap->displaymap();
+      nmap->move(exit);
+      i++;
+      if (exit == true) {
+        delete nmap;
+        goto c4;
+      }
+    }
+    }
+    else{
+      cout << "INVALID FILE READ, NO SAVES FOUND IN FILE SAVES.TXT" <<endl;
+    }
     return menu(me, they);
-    break;
   }
 
   case 3: {
