@@ -1,4 +1,4 @@
-# levelQuest THE SECOND
+# levelQuest 2
 <h1>
 TO RUN:
   </h1>
