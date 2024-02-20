@@ -1,7 +1,7 @@
 # levelQuest THE SECOND
-<h2>
+<h1>
 TO RUN:
-  </h2>
+  </h1>
  <h4> clone the repository, cd to root, and run the below command.  </h4>
   <code> sh start.sh</code> 
   <hr/>
