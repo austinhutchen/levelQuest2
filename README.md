@@ -1,7 +1,5 @@
 # levelQuest 2
-<h1>
-TO RUN:
-  </h1>
+ <h4> Use git clone with the https link to clone  the repositor on your remote or local machine, cd to root, and run the below command.  </h4>
  <h4> clone the repository, cd to root, and run the below command.  </h4>
   <code> sh start.sh</code> 
   <hr/>
